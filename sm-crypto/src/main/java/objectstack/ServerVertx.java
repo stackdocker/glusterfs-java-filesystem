@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class ServerVertx extends AbstractVerticle {
 
   @Autowired
-  ConfVertx configuration;
+  AppConf configuration;
 
   @Override
   public void start() throws Exception {

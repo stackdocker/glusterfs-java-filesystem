@@ -30,10 +30,14 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 public class App implements ApplicationContextAware {
 
 	@Autowired
+    AppConf appConf;
+
+	@Autowired
 	private ServerVertx staticServer;
 
 	@PostConstruct
 	public void deployVerticle() {
+		if (true != appConf.getAsvertxapp()) return;
 	    Vertx.vertx().deployVerticle(staticServer);
 	}	
 	
@@ -66,7 +70,7 @@ public class App implements ApplicationContextAware {
 			@Override
 			public RepeatStatus execute(StepContribution contribution,
 					ChunkContext context) {
-				processUpload();
+				if (true != appConf.getAsvertxapp()) processUpload();
 				return RepeatStatus.FINISHED;
 			}
 			

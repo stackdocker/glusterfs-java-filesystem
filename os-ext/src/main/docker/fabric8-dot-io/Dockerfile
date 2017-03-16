@@ -10,7 +10,7 @@ LABEL maintainer "tangfeixiong <tangfx128@gmail.com>"
 # Java download location (default is Oracle Server JRE 8)
 ARG java_pkg="http://172.17.4.1:48080/99-mirror/http%3A%2F%2Fdownload.oracle.com/otn-pub%2Fjava%2Fjdk%2F8u112-b15/server-jre-8u112-linux-x64.tar.gz"
 
-COPY /os-ext.jar /opt/ecp/app.jar
+COPY /maven/os-ext.jar /opt/ecp/app.jar
 
 ENV JAVA_HOME="/opt/java" \
     PATH=$PATH:/opt/java/bin 
@@ -46,7 +46,7 @@ ENV JAVA_OPTIONS="-Xms128m -Xmx512m -XX:PermSize=64m -XX:MaxPermSize=256m" \
     SPRING_HTTP_MULTIPART_MAX_REQUEST_SIZE=30GB \
     GLUSTERFS_SERVER="172.17.4.200" \
     GLUSTERFS_VOLUME="glustervol1" \
-    STORAGE_LOCATION="ecp" \
+    STORAGE_LOCATION="ecp"
     
 EXPOSE 9099
 

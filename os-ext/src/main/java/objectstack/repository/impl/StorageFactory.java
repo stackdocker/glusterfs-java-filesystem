@@ -124,7 +124,7 @@ public class StorageFactory implements StorageService {
     public StorageFactory(StorageProperties properties) {
     	logger.debug("Glusterfs=" + (null == context ? "null" : context.toString()));
     	String scheme = properties.getFss();
-    	if (scheme.length() == 0 || scheme.toLowerCase() == "file" || scheme.toLowerCase() == "vfs" ) {
+    	if ( null == scheme || scheme.length() == 0 || scheme.toLowerCase() == "file" || scheme.toLowerCase() == "vfs" ) {
             this.repos = new FileSystemStorageService(properties);
     	} else {
     		this.repos = new Glusterfs();

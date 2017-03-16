@@ -14,7 +14,7 @@ LABEL maintainer "tangfeixiong <tangfx128@gmail.com>"
 # Java download location (default is Oracle Server JRE 8)
 ARG java_pkg="http://172.17.4.1:48080/99-mirror/http%3A%2F%2Fdownload.oracle.com/otn-pub%2Fjava%2Fjdk%2F8u112-b15/server-jre-8u112-linux-x64.tar.gz"
 
-COPY /os-ext.jar /opt/ecp/app.jar
+COPY /multipart-upload.jar /opt/ecp/app.jar
     
 RUN set -x \
     temp_dir=/tmp/build \

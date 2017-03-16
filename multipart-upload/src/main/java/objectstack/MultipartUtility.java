@@ -1,4 +1,4 @@
-package objectstack.mockHttpMultipartFormDataReceiver;
+package objectstack;
  
 import java.io.BufferedReader;
  
@@ -14,6 +14,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
  
 /**
  * This utility class provides an abstraction layer for sending multipart HTTP
@@ -56,7 +57,37 @@ public class MultipartUtility {
         writer = new PrintWriter(new OutputStreamWriter(outputStream, charset),
                 true);
     }
+
+    void randomBinaryPart(String fieldName, String asFileName, long asFileSize)
+            throws IOException {
+        String fileName = asFileName;
+        writer.append("--" + boundary).append(LINE_FEED);
+        writer.append(
+                "Content-Disposition: form-data; name=\"" + fieldName
+                        + "\"; filename=\"" + fileName + "\"")
+                .append(LINE_FEED);
+        writer.append(
+                "Content-Type: application/octet-stream")
+                .append(LINE_FEED);
+        writer.append("Content-Transfer-Encoding: binary").append(LINE_FEED);
+        writer.append(LINE_FEED);
+        writer.flush();
  
+        byte[] buffer = new byte[2048];
+        int bytesRead = 0;
+        Random rnd = new Random(System.currentTimeMillis());
+        do {
+        	rnd.nextBytes(buffer);
+            outputStream.write(buffer, 0, 2048);
+            bytesRead += 2048;
+            
+        } while (bytesRead < asFileSize);
+        outputStream.flush();
+         
+        writer.append(LINE_FEED);
+        writer.flush();    
+    }
+    
     /**
      * Adds a form field to the request
      * @param name field name

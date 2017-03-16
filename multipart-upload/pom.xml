@@ -11,13 +11,14 @@
     </parent>
 
 	<groupId>github-dot-com.stackdocker.glusterfs</groupId>
-	<artifactId>os-ext</artifactId>
+	<artifactId>multipart-upload</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<description>Object Storage extension of Glusterfs project for Spring Boot</description>
+	<description>Http multipart upload for Spring Boot</description>
 
     <properties>
+        <main.basedir>${basedir}/../..</main.basedir>
         <glusterfs.server>172.17.4.200</glusterfs.server>
         <glusterfs.volume>foo</glusterfs.volume>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,6 +28,10 @@
     </properties>
 
 	<dependencies>
+	    <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-batch</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
@@ -134,7 +139,7 @@
 			 <configuration>
 			   <images>
 			     <image>
-			       <name>tangfeixiong/mock-multipart-receiver</name>
+			       <name>tangfeixiong/mock-multipart-sender</name>
 			       <build>
 			         <dockerFileDir>${project.basedir}/src/main/docker/fabric8-dot-io</dockerFileDir>
 			         <assembly>
@@ -152,7 +157,7 @@
 		      <artifactId>docker-maven-plugin</artifactId>
 		      <version>0.4.13</version>
 		      <configuration>
-		        <imageName>tangfeixiong/mock-multipart-receiver</imageName>
+		        <imageName>tangfeixiong/mock-multipart-sender</imageName>
 		        <dockerDirectory>${project.basedir}/src/main/docker/spotify-dot-com</dockerDirectory>
 		        <resources>
 		           <resource>
@@ -180,7 +185,7 @@
 		        
 			    <images>
 			      <image>
-			        <name>tangfeixiong/mock-multipart-receiver</name>
+			        <name>tangfeixiong/mock-multipart-sender</name>
 			        <build>
 			          <dockerFileDir>${project.basedir}/src/main/docker/fabric8-dot-io</dockerFileDir>
 			          <assembly>

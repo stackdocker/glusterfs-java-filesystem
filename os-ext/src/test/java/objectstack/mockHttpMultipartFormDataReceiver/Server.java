@@ -20,6 +20,9 @@ import java.util.Properties;
 
 /**
  * Created by tangfeixiong on 3/6/17.
+ * https://spring.io/guides/gs/uploading-files/
+ * https://github.com/netgloo/spring-boot-samples/tree/master/spring-boot-file-upload-with-ajax/src/main/resources/static
+ * http://www.mkyong.com/spring-boot/spring-boot-file-upload-example/
  */
 @SpringBootApplication
 @RestController

@@ -7,8 +7,11 @@ import objectstack.api.StorageService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Component;
@@ -23,8 +26,9 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
+@Primary
 @Component
-public class StorageFactory implements StorageService {
+public class StorageFactory implements StorageService, ApplicationContextAware {
 	private static final Logger logger = LoggerFactory
 			.getLogger(StorageFactory.class);
     
@@ -35,7 +39,16 @@ public class StorageFactory implements StorageService {
 	public void logSomething() {
 		logger.debug(this.getClass().getSimpleName() + " created!");
 	}
-
+    
+    @Autowired
+    private ApplicationContext context = null;
+    
+    @Override
+    public void setApplicationContext(ApplicationContext context) throws BeansException
+    {
+        this.context = context;
+    }
+    
     /*
      * https://github.com/spring-guides/gs-uploading-files
      */
@@ -55,6 +68,7 @@ public class StorageFactory implements StorageService {
 	            if (file.isEmpty()) {
 	                throw new StorageException("Failed to store empty file " + file.getOriginalFilename());
 	            }
+	            Files.deleteIfExists(this.rootLocation.resolve(file.getOriginalFilename()));
 	            Files.copy(file.getInputStream(), this.rootLocation.resolve(file.getOriginalFilename()));
 	        } catch (IOException e) {
 	            throw new StorageException("Failed to store file " + file.getOriginalFilename(), e);
@@ -115,19 +129,18 @@ public class StorageFactory implements StorageService {
 	    }
 	}
 	
-	private final StorageService repos;
-    
-    @Autowired
-    private ApplicationContext context;
+	private StorageService repos = null;
 
     @Autowired
     public StorageFactory(StorageProperties properties) {
-    	logger.debug("Glusterfs=" + (null == context ? "null" : context.toString()));
     	String scheme = properties.getFss();
-    	if ( null == scheme || scheme.length() == 0 || scheme.toLowerCase() == "file" || scheme.toLowerCase() == "vfs" ) {
+    	if ( null == scheme || scheme.length() == 0 || "file".equalsIgnoreCase(scheme) || "vfs".equalsIgnoreCase(scheme) ) {
             this.repos = new FileSystemStorageService(properties);
-    	} else {
+    	} else if ("gluster".equalsIgnoreCase(scheme) || "glusterfs".equalsIgnoreCase(scheme)) {
+        	logger.debug("Using glusterfs with libgfapi-jni");
     		this.repos = new Glusterfs();
+    	} else {
+    	    throw new StorageException("Could not know file system scheme");
     	}
     }
 

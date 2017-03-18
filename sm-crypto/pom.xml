@@ -21,7 +21,7 @@
         <main.basedir>${basedir}/../..</main.basedir>
         <glusterfs.server>172.17.4.200</glusterfs.server>
         <glusterfs.volume>foo</glusterfs.volume>
-        <exec.mainClass>objectstack.AppVertx</exec.mainClass>
+        <exec.mainClass>objectstack.App</exec.mainClass>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <it.skip>true</it.skip>

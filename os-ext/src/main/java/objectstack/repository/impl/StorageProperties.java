@@ -1,5 +1,9 @@
 package objectstack.repository.impl;
 
+/*
+ * https://www.mkyong.com/spring-boot/spring-boot-configurationproperties-example/
+ */
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 

@@ -17,8 +17,6 @@ import org.springframework.context.annotation.Bean;
 
 /**
  * Created by tangfeixiong (tangfx128@gmail.com) on 3/6/17.
- * https://spring.io/guides/gs/uploading-files/
- * @EnableAutoConfiguration(exclude = { DataSourceAutoConfiguration.class,WebMvcAutoConfiguration.class })
  */
 @SpringBootApplication
 public class App {	

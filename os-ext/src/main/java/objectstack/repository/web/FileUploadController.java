@@ -56,6 +56,7 @@ public class FileUploadController {
     }
 
     @PostMapping("/storage")
+    @CrossOrigin(origins = "http://localhost:9000")
     public String handleFileUpload(@RequestParam("files") MultipartFile[] files,
                                    RedirectAttributes redirectAttributes) {
 

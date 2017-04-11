@@ -15,7 +15,7 @@
     <version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<description>SM/ECC crypto for Spring Boot</description>
+	<description>SM/ECC decrypto for Spring Boot</description>
 
     <properties>
         <main.basedir>${basedir}/../..</main.basedir>
@@ -30,9 +30,17 @@
 
 	<dependencies>
         <dependency>
-          <groupId>io.vertx</groupId>
-          <artifactId>vertx-core</artifactId>
-          <version>3.4.0</version>
+            <groupId>com.sansec.jce</groupId>
+            <artifactId>swxaprovider</artifactId>
+            <version>2.1.24</version>
+            <systemPath>${project.basedir}/lib/SwxaJCE.jar</systemPath>
+            <scope>system</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-core</artifactId>
+            <version>3.4.0</version>
         </dependency>
 	
 	    <dependency>
@@ -94,7 +102,6 @@
 	
     <build>
         <finalName>${project.artifactId}</finalName>
-<!--         <directory>${project.basedir}/target</directory> -->
         <resources>
             <resource>
                 <directory>${project.basedir}/src/main/resources</directory>

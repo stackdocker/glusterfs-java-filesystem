@@ -1,0 +1,27 @@
+[submodule "sync-file-via-kafka-jdbc-connection-streaming/github.com/MonsantoCo/goldengate-kafka-adapter"]
+	path = sync-file-via-kafka-jdbc-connection-streaming/github.com/MonsantoCo/goldengate-kafka-adapter
+	url = https://github.com/stackdocker/goldengate-kafka-adapter
+[submodule "sync-file-via-kafka-jdbc-connection-streaming/github.com/wushujames/kafka-connector-skeleton"]
+	path = sync-file-via-kafka-jdbc-connection-streaming/github.com/wushujames/kafka-connector-skeleton
+	url = https://github.com/stackdocker/kafka-connector-skeleton
+[submodule "sync-file-via-kafka-jdbc-connection-streaming/github.com/wushujames/kafka-mysql-connector"]
+	path = sync-file-via-kafka-jdbc-connection-streaming/github.com/wushujames/kafka-mysql-connector
+	url = https://github.com/stackdocker/kafka-mysql-connector
+[submodule "sync-file-via-kafka-jdbc-connection-streaming/github.com/justonedb/kafka-sink-pg-json"]
+	path = sync-file-via-kafka-jdbc-connection-streaming/github.com/justonedb/kafka-sink-pg-json
+	url = https://github.com/stackdocker/kafka-sink-pg-json
+[submodule "sync-file-via-kafka-jdbc-connection-streaming/github.com/howtoprogram/Kafka-MultiThread-Java-Example"]
+	path = sync-file-via-kafka-jdbc-connection-streaming/github.com/howtoprogram/Kafka-MultiThread-Java-Example
+	url = https://github.com/stackdocker/Kafka-MultiThread-Java-Example
+[submodule "sync-file-via-kafka-jdbc-connection-streaming/github.com/gnodet/githubfs"]
+	path = sync-file-via-kafka-jdbc-connection-streaming/github.com/gnodet/githubfs
+	url = https://github.com/stackdocker/githubfs
+[submodule "sync-file-via-kafka-jdbc-connection-streaming/github.com/puniverse/javafs"]
+	path = sync-file-via-kafka-jdbc-connection-streaming/github.com/puniverse/javafs
+	url = https://github.com/stackdocker/javafs
+[submodule "sync-file-via-kafka-jdbc-connection-streaming/github.com/datamountaineer/stream-reactor"]
+	path = sync-file-via-kafka-jdbc-connection-streaming/github.com/datamountaineer/stream-reactor
+	url = https://github.com/stackdocker/stream-reactor
+[submodule "sync-file-via-kafka-jdbc-connection-streaming/github.com/tuplejump/kafka-connect-cassandra"]
+	path = sync-file-via-kafka-jdbc-connection-streaming/github.com/tuplejump/kafka-connect-cassandra
+	url = https://github.com/stackdocker/kafka-connect-cassandra

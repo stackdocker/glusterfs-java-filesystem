@@ -14,6 +14,9 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
  * Created by tangfeixiong (tangfx128@gmail.com) on 3/6/17.
@@ -45,4 +48,22 @@ public class App {
 			storageService.init();
 		};
 	}
+	
+	/*
+	 * https://github.com/spring-guides/gs-rest-service-cors
+	 */
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurerAdapter() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/apis/**").allowedOrigins("http://localhost:9000")
+    			    .allowedMethods("PUT", "DELETE")
+    			    .allowedHeaders("header1", "header2", "header3")
+    			    .exposedHeaders("header1", "header2")
+    			    .allowCredentials(false).maxAge(3600);
+                registry.addMapping("/storage").allowedOrigins("http://localhost:9000");
+            }
+        };
+    }	
 }

@@ -1,0 +1,315 @@
+fanhonglingdeMacBook-Pro:https%3A%2F%2Fservices.gradle.org%2Fdistributions fanhongling$ curl -jkSL -O -C - https://services.gradle.org/distributions/gradle-3.5-bin.zip
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+100 69.9M  100 69.9M    0     0  56764      0  0:21:31  0:21:31 --:--:--  166k
+fanhonglingdeMacBook-Pro:https%3A%2F%2Fservices.gradle.org%2Fdistributions fanhongling$ ls
+gradle-3.5-bin.zip
+fanhonglingdeMacBook-Pro:https%3A%2F%2Fservices.gradle.org%2Fdistributions fanhongling$ sudo unzip -d /opt/gradle gradle-3.5-bin.zip 
+Password:
+Archive:  gradle-3.5-bin.zip
+   creating: /opt/gradle/gradle-3.5/
+  inflating: /opt/gradle/gradle-3.5/LICENSE  
+   creating: /opt/gradle/gradle-3.5/media/
+  inflating: /opt/gradle/gradle-3.5/media/gradle-icon-16x16.png  
+  inflating: /opt/gradle/gradle-3.5/media/gradle-icon-24x24.png  
+  inflating: /opt/gradle/gradle-3.5/media/gradle.icns  
+  inflating: /opt/gradle/gradle-3.5/media/gradle-icon-512x512.png  
+  inflating: /opt/gradle/gradle-3.5/media/gradle-icon-32x32.png  
+  inflating: /opt/gradle/gradle-3.5/media/gradle-icon-128x128.png  
+  inflating: /opt/gradle/gradle-3.5/media/gradle-icon-64x64.png  
+  inflating: /opt/gradle/gradle-3.5/media/gradle-icon-256x256.png  
+  inflating: /opt/gradle/gradle-3.5/media/gradle-icon-48x48.png  
+   creating: /opt/gradle/gradle-3.5/init.d/
+  inflating: /opt/gradle/gradle-3.5/init.d/readme.txt  
+  inflating: /opt/gradle/gradle-3.5/NOTICE  
+  inflating: /opt/gradle/gradle-3.5/getting-started.html  
+   creating: /opt/gradle/gradle-3.5/bin/
+  inflating: /opt/gradle/gradle-3.5/bin/gradle.bat  
+  inflating: /opt/gradle/gradle-3.5/bin/gradle  
+   creating: /opt/gradle/gradle-3.5/lib/
+  inflating: /opt/gradle/gradle-3.5/lib/annotations-13.0.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-script-kotlin-0.8.0.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/kotlin-compiler-embeddable-1.1.0.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/kotlin-reflect-1.1.0.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/kotlin-stdlib-1.1.0.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-launcher-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-runtime-api-info-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-wrapper-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-installation-beacon-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-base-services-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-jvm-services-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-core-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-cli-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-ui-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-tooling-api-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-native-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-logging-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/slf4j-api-1.7.10.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/guava-jdk5-17.0.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/commons-lang-2.6.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-process-services-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-base-services-groovy-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-messaging-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-resources-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-model-core-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/groovy-all-2.4.10.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/asm-all-5.1.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/ant-1.9.6.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/javax.inject-1.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-model-groovy-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/commons-collections-3.2.2.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/commons-io-2.2.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/jcip-annotations-1.0.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/native-platform-0.14.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-docs-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-open-api-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/dom4j-1.6.1.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/jaxen-1.1.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/jansi-1.14.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/jul-to-slf4j-1.7.10.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/log4j-over-slf4j-1.7.10.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/jcl-over-slf4j-1.7.10.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/kryo-2.20.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/ant-launcher-1.9.6.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/native-platform-freebsd-amd64-libcpp-0.14.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/native-platform-freebsd-amd64-libstdcpp-0.14.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/native-platform-freebsd-i386-libcpp-0.14.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/native-platform-freebsd-i386-libstdcpp-0.14.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/native-platform-linux-amd64-0.14.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/native-platform-linux-i386-0.14.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/native-platform-osx-amd64-0.14.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/native-platform-osx-i386-0.14.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/native-platform-windows-amd64-0.14.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/native-platform-windows-i386-0.14.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/native-platform-linux-amd64-ncurses5-0.14.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/native-platform-linux-amd64-ncurses6-0.14.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/native-platform-linux-i386-ncurses5-0.14.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/native-platform-linux-i386-ncurses6-0.14.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/reflectasm-1.07-shaded.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/minlog-1.2.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/objenesis-1.2.jar  
+   creating: /opt/gradle/gradle-3.5/lib/plugins/
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-plugins-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-code-quality-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-jetty-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-antlr-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-osgi-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-maven-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-ide-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-announce-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-scala-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-signing-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-ear-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-javascript-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-build-comparison-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-diagnostics-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-reporting-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-publish-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-ivy-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-jacoco-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-build-init-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-platform-base-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-platform-jvm-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-language-jvm-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-language-java-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-language-groovy-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-language-scala-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-platform-native-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-platform-play-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-ide-play-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-language-native-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-ide-native-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-testing-base-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-testing-native-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-testing-jvm-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-plugin-development-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-plugin-use-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-resources-http-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-resources-sftp-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-resources-s3-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-tooling-api-builders-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-composite-builds-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-build-cache-http-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-workers-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-dependency-management-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gradle-test-kit-3.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/commons-cli-1.2.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/jetty-6.1.26.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/jetty-util-6.1.26.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/servlet-api-2.5-20081211.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/jetty-plus-6.1.26.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/jsp-2.1-6.1.14.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/jetty-annotations-6.1.26.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/geronimo-annotation_1.0_spec-1.0.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/biz.aQute.bndlib-3.2.0.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/maven-core-3.0.4.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/pmaven-common-0.8-20100325.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/pmaven-groovy-0.8-20100325.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/commons-codec-1.6.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/bcpg-jdk15on-1.51.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/rhino-1.7R3.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/gson-2.7.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/simple-4.1.21.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/jatl-0.2.2.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/junit-4.12.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/testng-6.3.1.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/httpclient-4.4.1.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/jcifs-1.3.17.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/xercesImpl-2.9.1.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/nekohtml-1.9.14.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/jsch-0.1.54.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/aws-java-sdk-s3-1.11.6.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/aws-java-sdk-kms-1.11.6.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/aws-java-sdk-core-1.11.6.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/jackson-core-2.6.6.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/jackson-annotations-2.6.6.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/jackson-databind-2.6.6.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/joda-time-2.8.2.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/ivy-2.2.0.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/xbean-reflect-3.4.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/bcprov-jdk15on-1.51.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/jetty-naming-6.1.26.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/core-3.1.1.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/jsp-api-2.1-6.1.14.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/maven-settings-3.0.4.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/maven-settings-builder-3.0.4.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/plexus-utils-2.0.6.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/plexus-interpolation-1.14.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/plexus-container-default-1.5.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/plexus-classworlds-2.4.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/plexus-cipher-1.7.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/plexus-sec-dispatcher-1.3.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/maven-compat-3.0.4.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/maven-model-builder-3.0.4.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/maven-model-3.0.4.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/maven-artifact-3.0.4.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/maven-repository-metadata-3.0.4.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/maven-plugin-api-3.0.4.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/maven-aether-provider-3.0.4.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/wagon-file-2.4.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/wagon-http-2.4.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/wagon-provider-api-2.4.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/wagon-http-shared4-2.4.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/aether-api-1.13.1.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/aether-impl-1.13.1.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/aether-spi-1.13.1.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/aether-util-1.13.1.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/aether-connector-wagon-1.13.1.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/bsh-2.0b4.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/jcommander-1.12.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/snakeyaml-1.6.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/httpcore-4.4.4.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/xml-apis-1.3.04.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/plexus-component-annotations-1.5.5.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/plugins/hamcrest-core-1.3.jar  
+  inflating: /opt/gradle/gradle-3.5/lib/gradle-version-info-3.5.jar  
+fanhonglingdeMacBook-Pro:https%3A%2F%2Fservices.gradle.org%2Fdistributions fanhongling$ ls /opt/gradle/
+gradle-3.5
+fanhonglingdeMacBook-Pro:https%3A%2F%2Fservices.gradle.org%2Fdistributions fanhongling$ ls /opt/gradle/gradle-3.5/bin/
+gradle		gradle.bat
+fanhonglingdeMacBook-Pro:https%3A%2F%2Fservices.gradle.org%2Fdistributions fanhongling$ export PATH=$PATH:/opt/gradle/gradle-3.5/bin
+fanhonglingdeMacBook-Pro:https%3A%2F%2Fservices.gradle.org%2Fdistributions fanhongling$ gradle --version
+
+------------------------------------------------------------
+Gradle 3.5
+------------------------------------------------------------
+
+Build time:   2017-04-10 13:37:25 UTC
+Revision:     b762622a185d59ce0cfc9cbc6ab5dd22469e18a6
+
+Groovy:       2.4.10
+Ant:          Apache Ant(TM) version 1.9.6 compiled on June 29 2015
+JVM:          1.8.0_91 (Oracle Corporation 25.91-b14)
+OS:           Mac OS X 10.10.4 x86_64
+
+fanhonglingdeMacBook-Pro:https%3A%2F%2Fservices.gradle.org%2Fdistributions fanhongling$ gradle help
+Starting a Gradle Daemon (subsequent builds will be faster)
+:help
+
+Welcome to Gradle 3.5.
+
+To run a build, run gradle <task> ...
+
+To see a list of available tasks, run gradle tasks
+
+To see a list of command-line options, run gradle --help
+
+To see more detail about a task, run gradle help --task <task>
+
+BUILD SUCCESSFUL
+
+Total time: 3.417 secs
+fanhonglingdeMacBook-Pro:https%3A%2F%2Fservices.gradle.org%2Fdistributions fanhongling$ gradle help --task wrapper
+:help
+Detailed task information for wrapper
+
+Path
+     :wrapper
+
+Type
+     Wrapper (org.gradle.api.tasks.wrapper.Wrapper)
+
+Options
+     --distribution-type     The type of the Gradle distribution to be used by the wrapper.
+                             Available values are:
+                                  ALL
+                                  BIN
+
+     --gradle-distribution-url     The URL to download the Gradle distribution from.
+
+     --gradle-version     The version of the Gradle distribution required by the wrapper.
+
+Description
+     Generates Gradle wrapper files.
+
+Group
+     Build Setup
+
+BUILD SUCCESSFUL
+
+Total time: 0.862 secs
+fanhonglingdeMacBook-Pro:https%3A%2F%2Fservices.gradle.org%2Fdistributions fanhongling$ ls
+gradle-3.5-bin.zip
+fanhonglingdeMacBook-Pro:https%3A%2F%2Fservices.gradle.org%2Fdistributions fanhongling$ cd ../../..
+fanhonglingdeMacBook-Pro:~ fanhongling$ cd Downloads/workspace/src/github.com/gluster/gluster-java-filesystem/sm-crypto/
+fanhonglingdeMacBook-Pro:sm-crypto fanhongling$ ls
+README.md	build.gradle	conf		lib		pom.xml		src		target
+fanhonglingdeMacBook-Pro:sm-crypto fanhongling$ gradle wrapper 
+Download https://repo1.maven.org/maven2/org/junit/platform/junit-platform-gradle-plugin/1.0.0-M4/junit-platform-gradle-plugin-1.0.0-M4.pom
+Download https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console/1.0.0-M4/junit-platform-console-1.0.0-M4.pom
+Download https://repo1.maven.org/maven2/org/junit/platform/junit-platform-launcher/1.0.0-M4/junit-platform-launcher-1.0.0-M4.pom
+Download https://repo1.maven.org/maven2/org/junit/platform/junit-platform-engine/1.0.0-M4/junit-platform-engine-1.0.0-M4.pom
+Download https://repo1.maven.org/maven2/org/junit/platform/junit-platform-commons/1.0.0-M4/junit-platform-commons-1.0.0-M4.pom
+Download https://repo1.maven.org/maven2/org/opentest4j/opentest4j/1.0.0-M2/opentest4j-1.0.0-M2.pom
+Download https://repo1.maven.org/maven2/org/junit/platform/junit-platform-gradle-plugin/1.0.0-M4/junit-platform-gradle-plugin-1.0.0-M4.jar
+Download https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console/1.0.0-M4/junit-platform-console-1.0.0-M4.jar
+Download https://repo1.maven.org/maven2/org/junit/platform/junit-platform-launcher/1.0.0-M4/junit-platform-launcher-1.0.0-M4.jar
+Download https://repo1.maven.org/maven2/org/junit/platform/junit-platform-engine/1.0.0-M4/junit-platform-engine-1.0.0-M4.jar
+Download https://repo1.maven.org/maven2/org/junit/platform/junit-platform-commons/1.0.0-M4/junit-platform-commons-1.0.0-M4.jar
+Download https://repo1.maven.org/maven2/org/opentest4j/opentest4j/1.0.0-M2/opentest4j-1.0.0-M2.jar
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '/Users/fanhongling/Downloads/workspace/src/github.com/gluster/gluster-java-filesystem/sm-crypto/build.gradle' line: 28
+
+* What went wrong:
+A problem occurred evaluating root project 'sm-crypto'.
+> Could not find method platformVersion() for arguments [1.0] on object of type org.junit.platform.gradle.plugin.JUnitPlatformExtension.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 18.226 secs
+fanhonglingdeMacBook-Pro:sm-crypto fanhongling$ gradle wrapper 
+:wrapper UP-TO-DATE
+
+BUILD SUCCESSFUL
+
+Total time: 0.864 secs
+
+fanhonglingdeMacBook-Pro:sm-crypto fanhongling$ gradle junitPlatformTest
+fanhonglingdeMacBook-Pro:sm-crypto fanhongling$ gradle test

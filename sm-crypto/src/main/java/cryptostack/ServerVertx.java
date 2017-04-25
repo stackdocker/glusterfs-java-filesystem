@@ -1,6 +1,7 @@
-package objectstack;
+package cryptostack;
 
 import io.vertx.core.AbstractVerticle;
+import io.vertx.core.Vertx;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.handler.StaticHandler;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,8 @@ public class ServerVertx extends AbstractVerticle {
   @Autowired
   AppConf configuration;
 
+  // Vertx vertx = Vertx.vertx();
+  
   @Override
   public void start() throws Exception {
     Router router = Router.router(vertx);

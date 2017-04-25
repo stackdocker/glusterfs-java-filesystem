@@ -1,0 +1,241 @@
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        // The following is only necessary if you want to use SNAPSHOT releases.
+        // maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+        jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    
+	ext {
+		springBootVersion = '1.5.2.RELEASE'
+	}
+	
+    dependencies {
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0-M4'
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.2.RELEASE"
+		// classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath "gradle.plugin.com.stehno:gradle-natives:0.3.1"
+    }
+}
+
+plugins {
+    id "io.spring.dependency-management" version "1.0.2.RELEASE"
+    id 'com.stehno.natives' version '0.3.1'
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+// apply plugin: 'natives'
+apply plugin: "com.stehno.natives"
+// apply plugin: 'application'
+apply plugin: 'org.junit.platform.gradle.plugin'
+apply plugin: "io.spring.dependency-management"
+// apply plugin: 'org.springframework.boot'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    // The following is only necessary if you want to use SNAPSHOT releases.
+    // maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    jcenter()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+            exclude ('cryptostack/poc/**', 'cryptostack/App.java', "cryptostack/ServerVertx.java")
+        }
+    }
+    test {
+        java {
+            srcDir 'src/test/java'
+            exclude ('cryptostack/poc/AppTests.java', 'cryptostack/SwxaCryptoTests*.java')
+        }
+    }
+}
+
+// ext.log4jVersion         = '2.6.2'
+ext {
+    junit4Version        = '4.12'
+    junitVintageVersion  = '4.12.0-M4'
+    junitPlatformVersion = '1.0.0-M4'
+    junitJupiterVersion  = '5.0.0-M4'
+    log4jVersion         = '2.8.2'
+    nativeLibsDir = "$buildDir/natives"
+}
+
+configurations {
+    nativeBundle
+}
+
+jar {
+	baseName = 'junit5-gradle-consumer'
+	version = '1.0.0-SNAPSHOT'
+}
+
+compileTestJava {
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+	options.compilerArgs += '-parameters'
+}
+
+task extractNativeBundle(type: Sync) {
+    from {
+        configurations.nativeBundle.collect { zipTree(it) }
+    }
+    into file(project.nativeLibsDir)
+}
+
+/* Copy the native files */
+task copyNativeDeps(type: Copy) {
+    from (configurations.compile+configurations.testCompile) {
+        include "lib/crypto.jar"
+        into '/tmp'
+        rename ('libdevice.so_64', 'libdevice.so')
+    }
+}
+
+/*
+run {
+    systemProperty 'java.library.path', file( 'build/natives/linux' )
+}
+*/
+
+test {
+    // dependsOn extractNativeBundle
+    dependsOn copyNativeDeps
+    systemProperty "java.library.path", "$buildDir/natives/linux:/tmp"
+}
+
+dependencyManagement {
+	dependencies {
+    	dependency 'org.springframework:spring-core:4.3.6.RELEASE'
+    	dependency 'org.springframework:spring-beans:4.3.6.RELEASE'
+    	dependency group:'commons-logging', name:'commons-logging', version:'1.2'
+	}
+    imports {
+    	mavenBom 'io.spring.platform:platform-bom:2.0.8.RELEASE'
+    	// https://mvnrepository.com/artifact/org.springframework/spring-framework-bom
+    	// mavenBom 'org.springframework:spring-framework-bom:4.3.6.RELEASE'
+    	
+  	}
+}
+
+dependencies {
+    nativeBundle files("$projectDir/lib/crypto.jar")
+    
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter
+	// compile("org.springframework.boot:spring-boot-starter:1.5.2.RELEASE")
+	
+	// https://mvnrepository.com/artifact/org.springframework/spring-core
+    // compile group: 'org.springframework', name: 'spring-core', version: '4.3.6.RELEASE'
+	// https://mvnrepository.com/artifact/org.springframework/spring-beans
+    // compile group: 'org.springframework', name: 'spring-beans', version: '4.3.6.RELEASE'
+	
+	// https://mvnrepository.com/artifact/org.springframework.integration/spring-integration-core
+    compile group: 'org.springframework.integration', name: 'spring-integration-core', version: '4.3.6.RELEASE'
+
+    // https://mvnrepository.com/artifact/commons-logging/commons-logging
+    compile group: 'commons-logging', name: 'commons-logging', version: '1.2'
+
+    // https://mvnrepository.com/artifact/commons-io/commons-io
+    compile group: 'commons-io', name: 'commons-io', version: '2.5'
+
+    // https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk16
+    compile group: 'org.bouncycastle', name: 'bcprov-jdk16', version: '1.46'
+	
+    compile files('lib/SwxaJCE.jar', 'lib/crypto.jar')
+	
+    // runtime files('lib/SwxaJCE.jar', 'lib/crypto.jar')
+    runtime fileTree(dir: 'lib', include: '*.jar')    
+
+    // Spring Integration Test
+    testCompile 'org.assertj:assertj-core:3.6.2'
+
+	// JUnit Jupiter API and TestEngine implementation
+	testCompile("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
+	testRuntime("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+
+	// If you also want to support JUnit 3 and JUnit 4 tests
+	testCompile("junit:junit:${junit4Version}")
+	testRuntime("org.junit.vintage:junit-vintage-engine:${junitVintageVersion}")
+    
+	testRuntime("org.apache.logging.log4j:log4j-core:${log4jVersion}")
+	testRuntime("org.apache.logging.log4j:log4j-jul:${log4jVersion}")
+}
+
+junitPlatform {
+    // platformVersion '1.0.0-M4'
+    // enableStandardTestTask true
+    // reportsDir file('build/test-results/junit-platform') // this is the default
+    // logManager 'org.apache.logging.log4j.jul.LogManager'
+    // filters (optional)
+    filters {
+		engines {
+			// include 'junit-jupiter', 'junit-vintage'
+			// exclude 'custom-engine'
+		}
+		tags {
+			// include 'fast'
+			exclude 'slow'
+		}
+		// includeClassNamePattern '.*Test'
+	}
+    /*
+    filters {
+        engines {
+            include 'junit-jupiter'
+            // exclude 'junit-vintage'
+        }
+        tags {
+            include 'fast', 'smoke'
+            // exclude 'slow', 'ci'
+        }
+        packages {
+            include 'com.sample.included1', 'com.sample.included2'
+            // exclude 'com.sample.excluded1', 'com.sample.excluded2'
+        }
+        includeClassNamePattern '.*Spec'
+        includeClassNamePatterns '.*Test', '.*Tests'
+    }
+    */
+    // selectors (optional)
+    /*
+    selectors {
+        uris 'file:///foo.txt', 'http://example.com/'
+        uri 'foo:resource' 
+        files 'foo.txt', 'bar.csv'
+        file 'qux.json' 
+        directories 'foo/bar', 'bar/qux'
+        directory 'qux/bar' 
+        packages 'com.acme.foo', 'com.acme.bar'
+        aPackage 'com.example.app' 
+        classes 'com.acme.Foo', 'com.acme.Bar'
+        aClass 'com.example.app.Application' 
+        methods 'com.acme.Foo#a', 'com.acme.Foo#b'
+        method 'com.example.app.Application#run(java.lang.String[])' 
+        resources '/bar.csv', '/foo/input.json'
+        resource '/com/acme/my.properties' 
+    }
+    */
+}
+
+task wrapper(type: Wrapper) {
+	description = 'Generates gradlew[.bat] scripts'
+	gradleVersion = '3.0'
+}
+
+natives {
+    configurations = ['compile', 'testCompile', 'runtime']
+    // platforms = Platform.all()
+    platforms = ['linux']
+    outputDir = 'natives'
+    libraries {
+        exclude = ['libdevice.so_32', 'libdevice.dll_32', "libdevice.dll_64"]
+    }
+}

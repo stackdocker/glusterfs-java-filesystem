@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JUnit Vintage" tests="3" skipped="0" failures="0" errors="0" time="0.205" hostname="fanhonglingdeMacBook-Pro.local" timestamp="2017-04-24T03:09:34">
+<properties>
+<property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+<property name="file.encoding" value="UTF-8"/>
+<property name="file.encoding.pkg" value="sun.io"/>
+<property name="file.separator" value="/"/>
+<property name="ftp.nonProxyHosts" value="local„ÄÅ169.254/16„ÄÅ192.168.39/24„ÄÅ172.16/12|*.local„ÄÅ169.254/16„ÄÅ192.168.39/24„ÄÅ172.16/12"/>
+<property name="gopherProxySet" value="false"/>
+<property name="http.nonProxyHosts" value="local„ÄÅ169.254/16„ÄÅ192.168.39/24„ÄÅ172.16/12|*.local„ÄÅ169.254/16„ÄÅ192.168.39/24„ÄÅ172.16/12"/>
+<property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+<property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+<property name="java.class.path" value="/Users/fanhongling/Downloads/workspace/src/github.com/gluster/gluster-java-filesystem/sm-crypto/build/classes/test:/Users/fanhongling/Downloads/workspace/src/github.com/gluster/gluster-java-filesystem/sm-crypto/build/resources/test:/Users/fanhongling/Downloads/workspace/src/github.com/gluster/gluster-java-filesystem/sm-crypto/build/classes/main:/Users/fanhongling/Downloads/workspace/src/github.com/gluster/gluster-java-filesystem/sm-crypto/build/resources/main:/Users/fanhongling/Downloads/workspace/src/github.com/gluster/gluster-java-filesystem/sm-crypto/lib/crypto.jar:/Users/fanhongling/Downloads/workspace/src/github.com/gluster/gluster-java-filesystem/sm-crypto/lib/local_policy.jar:/Users/fanhongling/Downloads/workspace/src/github.com/gluster/gluster-java-filesystem/sm-crypto/lib/SwxaJCE.jar:/Users/fanhongling/Downloads/workspace/src/github.com/gluster/gluster-java-filesystem/sm-crypto/lib/US_export_policy.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.springframework.integration/spring-integration-core/4.3.6.RELEASE/39f1a7f39d6fdc6b7bcb17bd8706f4a298abff36/spring-integration-core-4.3.6.RELEASE.jar:/Users/fanhongling/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/fanhongling/.m2/repository/commons-io/commons-io/2.5/commons-io-2.5.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk16/1.46/ce091790943599535cbb4de8ede84535b0c1260c/bcprov-jdk16-1.46.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.assertj/assertj-core/3.6.2/cfdf0dedb199f951143b33667a9962cc2b470dec/assertj-core-3.6.2.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.0.0-M4/50f95d68c674a30374c5f50e6ad5212d2c1a3cec/junit-jupiter-api-5.0.0-M4.jar:/Users/fanhongling/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/5.0.0-M4/10e0dc41a4e9c1817c2b729c3a7c48b1ddfed17/junit-jupiter-engine-5.0.0-M4.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.junit.vintage/junit-vintage-engine/4.12.0-M4/b74455e014bb82c6a83dcab849ec169f68978109/junit-vintage-engine-4.12.0-M4.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.8.2/979fc0cf8460302e4ffbfe38c1b66a99450b0bb7/log4j-core-2.8.2.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-jul/2.8.2/569ebeb8507e4ca8f9a47a0e441452e2154f5ea3/log4j-jul-2.8.2.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.6.RELEASE/690da099c3c2d2536210f0fd06ff3f336de43ad9/spring-core-4.3.6.RELEASE.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.2.8.RELEASE/ae926bf991bdf5894f52e4f1e9710c5f94656fc4/spring-aop-4.2.8.RELEASE.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.2.8.RELEASE/4de111782a6fb315d6f39eacf22fa8168f51062b/spring-context-4.2.8.RELEASE.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.springframework/spring-messaging/4.2.8.RELEASE/e53c2c2f6b1f5119284fae720801e187ae3eccb0/spring-messaging-4.2.8.RELEASE.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.2.8.RELEASE/b64d7823a8dc1876fcacfa79dee77f77bad6be5e/spring-tx-4.2.8.RELEASE.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.springframework.retry/spring-retry/1.1.3.RELEASE/f9517754a9990194ed0daecb5653e48564d557ee/spring-retry-1.1.3.RELEASE.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.0.0-M2/e2caa64702a83336d3dd32c7f69c1f092156df6d/opentest4j-1.0.0-M2.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.0.0-M4/359eb461814bd7356de541d131d45473d394a168/junit-platform-commons-1.0.0-M4.jar:/Users/fanhongling/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.0.0-M4/5e65bdd2d623dfc6a405911a6449f2c60808b0af/junit-platform-engine-1.0.0-M4.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.4.1/594e5643c9267ac1e91960a6b7315cf368c9ea02/log4j-api-2.4.1.jar:/Users/fanhongling/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.3.6.RELEASE/1585715ed598b76a23dac931c27aa039b189eafb/spring-beans-4.3.6.RELEASE.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.2.8.RELEASE/2db993c6f4b155100f45d742366941b984bbdf9c/spring-expression-4.2.8.RELEASE.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-launcher/1.0.0-M4/d4e3657bc7cf204d6b9b55f0387fedc6eaad55fa/junit-platform-launcher-1.0.0-M4.jar:/Users/fanhongling/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-console/1.0.0-M4/82da9da502b1fe187bed5f5152746696aad19fae/junit-platform-console-1.0.0-M4.jar"/>
+<property name="java.class.version" value="52.0"/>
+<property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/endorsed"/>
+<property name="java.ext.dirs" value="/Users/fanhongling/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+<property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre"/>
+<property name="java.io.tmpdir" value="/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/"/>
+<property name="java.library.path" value="/Users/fanhongling/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+<property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+<property name="java.runtime.version" value="1.8.0_91-b14"/>
+<property name="java.specification.name" value="Java Platform API Specification"/>
+<property name="java.specification.vendor" value="Oracle Corporation"/>
+<property name="java.specification.version" value="1.8"/>
+<property name="java.vendor" value="Oracle Corporation"/>
+<property name="java.vendor.url" value="http://java.oracle.com/"/>
+<property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+<property name="java.version" value="1.8.0_91"/>
+<property name="java.vm.info" value="mixed mode"/>
+<property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+<property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+<property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+<property name="java.vm.specification.version" value="1.8"/>
+<property name="java.vm.vendor" value="Oracle Corporation"/>
+<property name="java.vm.version" value="25.91-b14"/>
+<property name="line.separator" value="
+"/>
+<property name="os.arch" value="x86_64"/>
+<property name="os.name" value="Mac OS X"/>
+<property name="os.version" value="10.10.4"/>
+<property name="path.separator" value=":"/>
+<property name="socksNonProxyHosts" value="local„ÄÅ169.254/16„ÄÅ192.168.39/24„ÄÅ172.16/12|*.local„ÄÅ169.254/16„ÄÅ192.168.39/24„ÄÅ172.16/12"/>
+<property name="sun.arch.data.model" value="64"/>
+<property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/classes"/>
+<property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib"/>
+<property name="sun.cpu.endian" value="little"/>
+<property name="sun.cpu.isalist" value=""/>
+<property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+<property name="sun.java.command" value="org.junit.platform.console.ConsoleLauncher --details NONE --scan-class-path /Users/fanhongling/Downloads/workspace/src/github.com/gluster/gluster-java-filesystem/sm-crypto/build/classes/main:/Users/fanhongling/Downloads/workspace/src/github.com/gluster/gluster-java-filesystem/sm-crypto/build/resources/main:/Users/fanhongling/Downloads/workspace/src/github.com/gluster/gluster-java-filesystem/sm-crypto/build/classes/test:/Users/fanhongling/Downloads/workspace/src/github.com/gluster/gluster-java-filesystem/sm-crypto/build/resources/test -n ^.*Tests?$ -T slow --reports-dir /Users/fanhongling/Downloads/workspace/src/github.com/gluster/gluster-java-filesystem/sm-crypto/build/test-results/junit-platform"/>
+<property name="sun.java.launcher" value="SUN_STANDARD"/>
+<property name="sun.jnu.encoding" value="UTF-8"/>
+<property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+<property name="sun.os.patch.level" value="unknown"/>
+<property name="user.country" value="CN"/>
+<property name="user.dir" value="/Users/fanhongling/Downloads/workspace/src/github.com/gluster/gluster-java-filesystem/sm-crypto"/>
+<property name="user.home" value="/Users/fanhongling"/>
+<property name="user.language" value="zh"/>
+<property name="user.name" value="fanhongling"/>
+<property name="user.timezone" value="US/Pacific"/>
+<property name="user.variant" value=""/>
+</properties>
+<testcase name="test0_NewOriginalFile" classname="cryptostack.SunJceTests" time="0.007">
+<system-out><![CDATA[
+unique-id: [engine:junit-vintage]/[runner:cryptostack.SunJceTests]/[test:test0_NewOriginalFile(cryptostack.SunJceTests)]
+display-name: test0_NewOriginalFile
+]]></system-out>
+</testcase>
+<testcase name="test1st_KeyPair" classname="cryptostack.SunJceTests" time="0.004">
+<system-out><![CDATA[
+unique-id: [engine:junit-vintage]/[runner:cryptostack.SunJceTests]/[test:test1st_KeyPair(cryptostack.SunJceTests)]
+display-name: test1st_KeyPair
+]]></system-out>
+</testcase>
+<testcase name="test2nd_EncDec" classname="cryptostack.SunJceTests" time="0.097">
+<system-out><![CDATA[
+unique-id: [engine:junit-vintage]/[runner:cryptostack.SunJceTests]/[test:test2nd_EncDec(cryptostack.SunJceTests)]
+display-name: test2nd_EncDec
+]]></system-out>
+</testcase>
+<system-out><![CDATA[
+unique-id: [engine:junit-vintage]
+display-name: JUnit Vintage
+]]></system-out>
+</testsuite>

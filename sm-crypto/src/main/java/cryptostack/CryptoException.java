@@ -1,4 +1,4 @@
-package objectstack;
+package cryptostack;
 
 public class CryptoException extends RuntimeException {
 

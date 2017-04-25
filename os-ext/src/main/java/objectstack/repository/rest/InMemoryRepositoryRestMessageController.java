@@ -19,11 +19,12 @@ import java.util.concurrent.atomic.AtomicLong;
  * PUT: curl  -H "Content-type: application/json" -X PUT -d '{"id":10,"text":"aaaaa","summary":"bbbbb"}'  http://localhost:9090/apis/v1/10
  * GET: curl http://localhost:9090/apis/v1/accounts
  * GET: curl http://localhost:9090/v1/accounts/<account>
+ * DELETE: curl -X DELETE http://localhost:9090/10
+ *
  * GET: curl http://localhost:9090/v1/accounts/<account>/containers
  * GET: curl http://localhost:9090/v1/accounts/<account>/containers/<container>
  * GET: curl http://localhost:9090/v1/accounts/<account>/containers/<container>/objects
  * GET: curl http://localhost:9090/v1/accounts/<account>/containers/<container>/objects/<object>
- * DELETE: curl -X DELETE http://localhost:9090/10
  * OpenStack Swift
  * GET /v1/{account}
  *     Show account details and list containers

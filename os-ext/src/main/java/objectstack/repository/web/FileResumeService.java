@@ -21,18 +21,35 @@ import java.io.IOException;
 import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/storage")
-public class FileUploadController {
+@RequestMapping("/drive/v1")
+public class FileResumeService {
 
     private final StorageService storageService;
 
     @Autowired
-    public FileUploadController(StorageService storageService) {
+    public FileResumeService(StorageService storageService) {
         this.storageService = storageService;
     }
 
-    @GetMapping("/")
-    public String listUploadedFiles(Model model) throws IOException {
+    /*
+     * 请求断点续传
+		POST https://www.googleapis.com/drive/v3/files?uploadType=resumable HTTP/1.1
+		Authorization: Bearer [YOUR_AUTH_TOKEN]
+		Content-Length: 38
+		Content-Type: application/json; charset=UTF-8
+		X-Upload-Content-Type: image/jpeg
+		X-Upload-Content-Length: 2000000
+		 
+		{
+		  "name": "myObject"
+		}
+	 * 服务端响应
+		HTTP/1.1 200 OK
+		Location: https://www.googleapis.com/upload/drive/v3/files?uploadType=resumable&upload_id=xa298sd_sdlkj2
+		Content-Length: 0
+     */
+    @PostMapping("/files")
+    public String listUploadedFiles(@RequestParam("upload_type") String uploadType) throws IOException {
 
         model.addAttribute("files", storageService
                 .loadAll()
@@ -45,20 +62,25 @@ public class FileUploadController {
         return "uploadForm";
     }
 
-    @GetMapping("/files/{filename:.+}")
-    @ResponseBody
-    public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
-
-        Resource file = storageService.loadAsResource(filename);
-        return ResponseEntity
-                .ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\""+file.getFilename()+"\"")
-                .body(file);
-    }
-
-    @PostMapping("/")
+    /*
+     * 获取断点续传的偏移值
+        PUT https://www.googleapis.com/upload/drive/v3/files?uploadType=resumable&upload_id=xa298sd_sdlkj2 HTTP/1.1
+		Content-Length: 0
+		Content-Range: bytes *\/2000000
+	 * 微服务端响应
+		HTTP/1.1 308 Resume Incomplete
+		Content-Length: 0
+		Range: bytes=0-42
+     * 然后，进行断点续传
+		PUT https://www.googleapis.com/upload/drive/v3/files?uploadType=resumable&upload_id=xa298sd_sdlkj2 HTTP/1.1
+		Content-Length: 1999957
+		Content-Range: bytes 43-1999999/2000000
+		
+		[BYTES 43-1999999]
+     */
+    @PutMapping("/files")
     @CrossOrigin(origins = "http://localhost:9000")
-    public String handleFileUpload(@RequestParam("files") MultipartFile[] files,
+    public String handleFileUpload(@RequestParam("upload_type") String uploadType, @RequestParam("upload_id") String uploadId,
                                    RedirectAttributes redirectAttributes) {
 
     	for (MultipartFile file: files) {
@@ -69,6 +91,16 @@ public class FileUploadController {
                 "You successfully uploaded " + files.length + "!");
 
         return "redirect:/storage";
+    }
+
+    @GetMapping("/files")
+    public @ResponseBody ResponseEntity<Resource> serveFile(@PathVariable String filename) {
+
+        Resource file = storageService.loadAsResource(filename);
+        return ResponseEntity
+                .ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\""+file.getFilename()+"\"")
+                .body(file);
     }
 
     @ExceptionHandler(StorageFileNotFoundException.class)

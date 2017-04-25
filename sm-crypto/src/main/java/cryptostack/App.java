@@ -1,4 +1,4 @@
-package objectstack;
+package cryptostack;
 
 /*
  * https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-batch
@@ -37,7 +37,7 @@ public class App implements ApplicationContextAware {
 
 	@PostConstruct
 	public void deployVerticle() {
-		if (true != appConf.getAsvertxapp()) return;
+		if (true != appConf.isAsvertxapp()) return;
 	    Vertx.vertx().deployVerticle(staticServer);
 	}	
 	
@@ -70,7 +70,7 @@ public class App implements ApplicationContextAware {
 			@Override
 			public RepeatStatus execute(StepContribution contribution,
 					ChunkContext context) {
-				if (true != appConf.getAsvertxapp()) processUpload();
+				if (true != appConf.isAsvertxapp()) processUpload();
 				return RepeatStatus.FINISHED;
 			}
 			
@@ -78,12 +78,12 @@ public class App implements ApplicationContextAware {
 			    ApplicationContext context = applicationContext; /* new AnnotationConfigApplicationContext(AppConfig.class); */
 			    ThreadPoolTaskExecutor taskExecutor = (ThreadPoolTaskExecutor) context.getBean("taskExecutor");
 
-			    MultipartFileUploader[] uploadTasks = new MultipartFileUploader[10];
-			    for (int i = 0; i < 10; i++) {
-			    	uploadTasks[i] = (MultipartFileUploader) context.getBean(MultipartFileUploader.class);
-			        uploadTasks[i].setName("Thread 1");
-			        taskExecutor.execute(uploadTasks[i]);
-			    }
+//			    MultipartFileUploader[] uploadTasks = new MultipartFileUploader[10];
+//			    for (int i = 0; i < 10; i++) {
+//			    	uploadTasks[i] = (MultipartFileUploader) context.getBean(MultipartFileUploader.class);
+//			        uploadTasks[i].setName("Thread 1");
+//			        taskExecutor.execute(uploadTasks[i]);
+//			    }
 
 				for (;;) {
 					int count = taskExecutor.getActiveCount();

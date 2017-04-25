@@ -18,10 +18,10 @@
 	<description>SM/ECC decrypto for Spring Boot</description>
 
     <properties>
-        <main.basedir>${basedir}/../..</main.basedir>
+        <exec.mainClass>cryptostack.poc.App</exec.mainClass>
         <glusterfs.server>172.17.4.200</glusterfs.server>
         <glusterfs.volume>foo</glusterfs.volume>
-        <exec.mainClass>objectstack.App</exec.mainClass>
+        <main.basedir>${basedir}/../..</main.basedir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <it.skip>true</it.skip>
@@ -29,24 +29,26 @@
     </properties>
 
 	<dependencies>
+		<dependency>
+		    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <version>4.12</version>
+		</dependency>
+
         <dependency>
             <groupId>com.sansec.jce</groupId>
-            <artifactId>swxaprovider</artifactId>
+            <artifactId>swxa</artifactId>
             <version>2.1.24</version>
             <systemPath>${project.basedir}/lib/SwxaJCE.jar</systemPath>
             <scope>system</scope>
         </dependency>
-
-        <dependency>
-            <groupId>io.vertx</groupId>
-            <artifactId>vertx-core</artifactId>
-            <version>3.4.0</version>
-        </dependency>
 	
+	    <!-- Compile -->
 	    <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-batch</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
@@ -64,6 +66,7 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
+        <!-- Test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -78,15 +81,22 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            </dependency>
+        </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            </dependency>
+        </dependency>
+        <!-- Runtime -->
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+        
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            </dependency>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -98,6 +108,19 @@
             <artifactId>glusterfs-java-filesystem</artifactId>
             <version>1.0.5-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-core</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-web</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+
     </dependencies>
 	
     <build>
@@ -258,7 +281,7 @@
 			<plugin>
 			  <groupId>org.apache.maven.plugins</groupId>
 			  <artifactId>maven-shade-plugin</artifactId>
-			  <version>2.3</version>
+			  <version>3.0.0</version>
 			  <executions>
 			    <execution>
 			      <phase>package</phase>
@@ -267,14 +290,28 @@
 			      </goals>
 			      <configuration>
 			        <transformers>
+<!--                       <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer"> -->
+<!--                           <mainClass>${exec.mainClass}</mainClass> -->
+<!--                       </transformer> -->
 			          <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 			            <manifestEntries>
 			              <Main-Class>${exec.mainClass}</Main-Class>
 			            </manifestEntries>
 			          </transformer>
+                      <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer">
+                      </transformer>
 			          <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
 			            <resource>META-INF/services/io.vertx.core.spi.VerticleFactory</resource>
 			          </transformer>
+                      <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                        <resource>META-INF/spring.handlers</resource>
+                      </transformer>
+                      <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                        <resource>META-INF/spring.schemas</resource>
+                      </transformer>
+                      <transformer implementation="org.springframework.boot.maven.PropertiesMergingResourceTransformer">
+                          <resource>META-INF/spring.factories</resource>
+                      </transformer>
 			        </transformers>
 			        <artifactSet>
 			        </artifactSet>
